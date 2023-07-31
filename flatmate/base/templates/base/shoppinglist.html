@@ -1,0 +1,19 @@
+<h1>My Shopping List</h1>
+<a href="{% url 'shoppingItem-create' %}">Add Item</a>
+<table>
+    <tr>
+        <th>Item</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for item in shoppingList %}
+    <tr>
+        <td>{{ item.title }}</td>
+        <td><a href="{% url 'shoppingItem' item.id %}">View</a></td>
+        <td><a href="{% url 'shoppingItem-update' item.id %}">Edit</a></td>
+        <td><a href="{% url 'shoppingItem-delete' item.id %}">Delete</a></td>
+    </tr>
+    {% empty %}
+    <h3>Nothing to shop!</h3>
+    {% endfor %}
+</table>
