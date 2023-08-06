@@ -53,7 +53,7 @@ class ShoppingList(LoginRequiredMixin, ListView):
 
         search_input = self.request.GET.get("search-area") or ''
         if search_input:
-            context['shoppingList'] = context['shoppingList'].filter(title__icontains=search_input)
+            context['shoppingList'] = context['shoppingList'].filter(title__startswith=search_input)
 
         context['search_input'] = search_input
 
