@@ -23,7 +23,6 @@
     {% for item in shoppingList %}
     <tr>
         <td>{{ item.title }}</td>
-        <td><a href="{% url 'shoppingItem' item.id %}">View</a></td>
         <td><a href="{% url 'shoppingItem-update' item.id %}">Edit</a></td>
         <td><a href="{% url 'shoppingItem-delete' item.id %}">Delete</a></td>
     </tr>
