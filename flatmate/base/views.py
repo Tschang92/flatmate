@@ -46,18 +46,18 @@ class ShoppingList(LoginRequiredMixin, ListView):
     template_name = 'base/shoppinglist.html'
 
     # Prevent users from seeing shopping items of other users
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['shoppingList'] = context['shoppingList'].filter(user=self.request.user)
-        context['count'] = context['shoppingList'].filter(complete=False).count()
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['shoppingList'] = context['shoppingList'].filter(user=self.request.user)
+    #     context['count'] = context['shoppingList'].filter(complete=False).count()
 
-        search_input = self.request.GET.get("search-area") or ''
-        if search_input:
-            context['shoppingList'] = context['shoppingList'].filter(title__startswith=search_input)
+    #     search_input = self.request.GET.get("search-area") or ''
+    #     if search_input:
+    #         context['shoppingList'] = context['shoppingList'].filter(title__startswith=search_input)
 
-        context['search_input'] = search_input
+    #     context['search_input'] = search_input
 
-        return context
+    #     return context
 
 
 class ShoppingDetail(LoginRequiredMixin, DetailView):
